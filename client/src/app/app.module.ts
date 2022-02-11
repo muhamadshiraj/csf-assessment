@@ -6,10 +6,13 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import { RecipeAddComponent } from './components/recipe-add/recipe-add.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RecipeService } from './recipe.service';
 
 const appRoutes: Routes = [
   { path: '', component:RecipeListComponent},
-  { path: 'recipe/:repiceId', component:RecipeDetailComponent},
+  { path: 'recipe/:recipeId', component:RecipeDetailComponent},
   { path: 'add', component:RecipeAddComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]
@@ -22,9 +25,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

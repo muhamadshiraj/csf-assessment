@@ -1,5 +1,5 @@
 export interface RecipeSummary {
-  recipeId: string
+  id: string
   title: string
 }
 
