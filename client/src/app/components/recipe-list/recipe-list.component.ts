@@ -19,8 +19,6 @@ export class RecipeListComponent implements OnInit {
 
     this.recipeSvc.getAllRecipes().then(r => (this.recipes = r));
 
-
-
   }
 
 
