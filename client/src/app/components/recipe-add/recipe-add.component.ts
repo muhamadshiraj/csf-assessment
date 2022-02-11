@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Recipe } from 'src/app/models';
 import { RecipeService } from 'src/app/recipe.service';
 
 @Component({
@@ -17,26 +18,26 @@ export class RecipeAddComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.createForm()
+   this.createForm()
   }
 
   createForm() {
     this.form = this.fb.group({
-      title: this.fb.control('', Validators.required),
+      title: this.fb.control('', [Validators.required,Validators.minLength(3)]),
       ingredients: this.IngredientsList(),
-      instruction: this.fb.control('', Validators.required),
-      image: this.fb.control('', Validators.required)
+      instruction: this.fb.control('', [Validators.required,Validators.minLength(3)]),
+      image: this.fb.control('', [Validators.required,Validators.minLength(3)])
     })
   }
 
   addRecipe() {
-    console.log("Hello")
+    console.log("Not yet done")
 
   }
 
   Ingredient(ingredient: string) {
     return this.fb.group({
-      name: this.fb.control(ingredient || '', Validators.required)
+      name: this.fb.control(ingredient || '', [Validators.required,Validators.minLength(3)])
     })
   }
 
@@ -61,5 +62,13 @@ export class RecipeAddComponent implements OnInit {
 
   deleteIngredient(index: number) {
     (<FormArray>this.form.get('ingredients')).removeAt(index);
+  }
+
+  processForm(){
+    // let recipe: Recipe = {
+    //   title: this.form.value['title'],
+    //   ingredients: this.form.value['ingredients'],
+    //   instruction: this.form.value['']
+    // }
   }
 }
