@@ -12,7 +12,7 @@ import { RecipeService } from './recipe.service';
 
 const appRoutes: Routes = [
   { path: '', component:RecipeListComponent},
-  { path: 'recipe/:recipeId', component:RecipeDetailComponent},
+  { path: 'recipe/:id', component:RecipeDetailComponent},
   { path: 'add', component:RecipeAddComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]

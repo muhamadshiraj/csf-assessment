@@ -1,3 +1,22 @@
-<h1>test</h1>
+<h2>VIEW 2: RECIPE DETAIL</h2>
 <hr>
-<button style="cursor: pointer;" type="button" (click)="onLoadHome()">Back</button>
+
+<table>
+  <tr>
+    <td><h1><label for="title">{{recipe?.title}}</label></h1></td>
+  </tr>
+  <tr>
+    <td><img src="{{recipe?.image}}" height="200px" alt="image not found"></td>
+  </tr>
+  <tr>
+    <td><h2><label for="ingredient">Ingredient:</label></h2></td>
+  </tr>
+  <tr>{{recipe?.ingredients}}</tr>
+  <tr>
+    <td><h2><label for="instruction">Instruction</label></h2></td>
+  </tr>
+  <tr>
+    <td>{{recipe?.instruction}}</td>
+  </tr>
+</table>
+<button style="cursor: pointer;" type="button" (click)="goHome()">Back</button>
